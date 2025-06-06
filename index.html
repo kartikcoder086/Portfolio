@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kartik | Portfolio</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #0f0f0f;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    header {
+      background-color: #121212;
+      padding: 15px 30px;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 0 10px #00f7ff;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav h1 {
+      color: #00f7ff;
+      text-shadow: 0 0 10px #00f7ff;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 20px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+      padding: 6px 12px;
+      border-radius: 5px;
+      transition: 0.3s;
+    }
+
+    nav ul li a:hover {
+      background-color: #00f7ff33;
+      color: #00f7ff;
+      box-shadow: 0 0 8px #00f7ff;
+    }
+
+    section {
+      min-height: 100vh;
+      padding: 100px 20px 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    h2 {
+      font-size: 2.5rem;
+      color: #00f7ff;
+      margin-bottom: 20px;
+      text-shadow: 0 0 10px #00f7ff;
+    }
+
+    p, li {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: #ccc;
+    }
+
+    ul.skills-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 15px;
+      list-style: none;
+      margin-top: 20px;
+    }
+
+    ul.skills-list li {
+      background: #1f1f1f;
+      padding: 10px 15px;
+      text-align: center;
+      border-radius: 10px;
+      box-shadow: 0 0 8px #00f7ff33;
+      transition: 0.3s;
+    }
+
+    ul.skills-list li:hover {
+      box-shadow: 0 0 20px #00f7ff;
+    }
+
+    .contact-info {
+      margin-top: 20px;
+    }
+
+    .contact-info p {
+      margin: 10px 0;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #121212;
+      color: #888;
+    }
+
+    .hidden {
+      opacity: 0;
+      transform: translateX(-100px);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+
+    .show {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        flex-direction: column;
+        background-color: #1a1a1a;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 200px;
+        display: none;
+        padding: 15px;
+        border-left: 2px solid #00f7ff;
+      }
+
+      nav ul.show-menu {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: block;
+        color: #00f7ff;
+        font-size: 24px;
+        cursor: pointer;
+      }
+    }
+
+    @media (min-width: 769px) {
+      .menu-toggle {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <h1>Kartik</h1>
+      <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+      <ul id="menu">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="home" class="container hidden">
+    <h2>Welcome to My Portfolio</h2>
+    <p>Hello! I'm Kartik, a passionate student and developer. I love building web and Android applications, and I'm always learning something new!</p>
+  </section>
+
+  <section id="about" class="container hidden">
+    <h2>About Me</h2>
+    <p>I'm a student who loves programming, especially in Java, HTML, CSS, and JavaScript. I'm building creative projects and always exploring new technologies like Android Development, Web Apps, and AI.</p>
+  </section>
+
+  <section id="skills" class="container hidden">
+    <h2>My Skills</h2>
+    <ul class="skills-list">
+      <li>HTML</li>
+      <li>CSS</li>
+      <li>JavaScript</li>
+      <li>Java</li>
+      <li>Android Dev</li>
+      <li>Git & GitHub</li>
+      <li>Firebase</li>
+      <li>SQL</li>
+    </ul>
+  </section>
+
+  <section id="contact" class="container hidden">
+    <h2>Contact Me</h2>
+    <div class="contact-info">
+      <p>Email: <a href="mailto:jhakartik099@gmail.com" style="color:#00f7ff;">jhakartik099@gmail.com</a></p>
+      <p>Phone: <a href="tel:8697915528" style="color:#00f7ff;">8697915528</a></p>
+      <p>Location: Howrah, West Bengal, India</p>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 Kartik Jha | All Rights Reserved
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById("menu").classList.toggle("show-menu");
+    }
+
+    const hiddenElements = document.querySelectorAll(".hidden");
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
+
+    hiddenElements.forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
